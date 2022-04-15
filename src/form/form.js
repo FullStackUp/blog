@@ -29,14 +29,17 @@ form.addEventListener("submit", async (event) => {
 });
 
 const formIsValid = (article) => {
-  if (!article.author || !article.category || !article.content) {
+  if (
+    !article.author ||
+    !article.img ||
+    !article.category ||
+    !article.title ||
+    !article.content
+  ) {
     errors.push("You must fill in all the fields...");
   }
   if (article.content.length < 20) {
     errors.push("The content of your article is too short!");
-  }
-  if (article.content.length > 300) {
-    errors.push("The content of your article is too long!");
   } else {
     errors = [];
   }
