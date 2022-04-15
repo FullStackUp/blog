@@ -1,7 +1,12 @@
+@import "./media-queries";
+
 .title {
   &-underline {
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--divider);
+    @include xs {
+      font-size: 2rem;
+    }
   }
 }
 
@@ -11,6 +16,9 @@
   padding: 1rem 2rem;
   font-weight: 700;
   font-size: 1.2rem;
+  @include xs {
+    font-size: 0.9rem;
+  }
   cursor: pointer;
   transition: box-shadow 0.2s;
   &:hover {

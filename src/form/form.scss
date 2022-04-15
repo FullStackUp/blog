@@ -1,3 +1,5 @@
+@import "../assets/sass/media-queries";
+
 .content {
   display: flex;
   justify-content: center;
@@ -5,6 +7,7 @@
   form {
     background: var(--light);
     width: 700px;
+    width: 100%;
     padding: 4rem;
     box-shadow: var(--box-shadow);
     border-radius: 3px;
@@ -19,6 +22,9 @@
         color: var(--accent);
         font-weight: 700;
         margin-bottom: 1rem;
+        @include xs {
+          font-size: 1.2rem;
+        }
       }
       input,
       textarea {
@@ -27,6 +33,9 @@
         outline: 0;
         border-radius: 3px;
         font-size: 1.5rem;
+        @include xs {
+          font-size: 1.2rem;
+        }
         &:focus {
           border-color: var(--accent);
         }
