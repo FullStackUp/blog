@@ -34,6 +34,9 @@ const formIsValid = (article) => {
   }
   if (article.content.length < 20) {
     errors.push("The content of your article is too short!");
+  }
+  if (article.content.length > 300) {
+    errors.push("The content of your article is too long!");
   } else {
     errors = [];
   }
