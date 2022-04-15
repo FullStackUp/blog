@@ -1,1 +1,1 @@
-Blog project using HTML, Sass and JavaScript with Webpack and Babel.
+Blog project using HTML, Sass and vanilla JavaScript (without framework), with Webpack and Babel.
