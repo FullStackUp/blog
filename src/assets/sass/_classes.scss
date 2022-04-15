@@ -10,6 +10,7 @@
   border-radius: 3px;
   padding: 1rem 2rem;
   font-weight: 700;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: box-shadow 0.2s;
   &:hover {
@@ -24,5 +25,13 @@
     border: 1px solid var(--primary);
     background: var(--light);
     color: var(--primary);
+  }
+}
+
+.text {
+  &-error {
+    color: var(--error);
+    font-size: 1.5rem;
+    font-weight: 700;
   }
 }
