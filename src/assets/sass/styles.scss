@@ -17,16 +17,43 @@
 
 header {
   grid-area: header;
-  background: green;
-  padding: 20px;
+  background: var(--dark);
+  padding: 2rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  a {
+    color: var(--light);
+  }
+  .header-brand {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  ul {
+    display: flex;
+    li {
+      .header-nav {
+        font-size: 1.2rem;
+        padding: 0 0.5rem;
+      }
+      .active {
+        font-weight: 700;
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 .content {
   grid-area: content;
-  padding: 20px;
+  padding: 2rem;
 }
 
 footer {
   grid-area: footer;
-  background: blue;
+  padding: 2rem;
+  background: var(--dark-grey);
+  color: var(--light);
+  text-align: center;
 }
