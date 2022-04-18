@@ -1,8 +1,8 @@
-import { async } from "regenerator-runtime";
 import "./assets/sass/styles.scss";
 import "./index.scss";
 
 const articlesContainerElement = document.querySelector(".articles-container");
+const categoriesContainerElment = document.querySelector(".categories");
 
 const createArticles = (articles) => {
   const articlesDOM = articles.map((article) => {
@@ -61,12 +61,39 @@ const createArticles = (articles) => {
   });
 };
 
+const displayMenuCategories = (categoriesArr) => {
+  const liElements = categoriesArr.map((categoryElem) => {
+    const li = document.createElement("li");
+    li.innerHTML = `<li>${categoryElem[0]} (<strong>${categoryElem[1]}</strong>)</li>`;
+    return li;
+  });
+
+  categoriesContainerElment.innerHTML = "";
+  categoriesContainerElment.append(...liElements);
+  console.log(liElements);
+};
+
+const createMenuCategories = (articles) => {
+  const categories = articles.reduce((acc, article) => {
+    if (acc[article.category]) {
+      acc[article.category]++;
+    } else {
+      acc[article.category] = 1;
+    }
+    return acc;
+  }, {});
+  const categoriesArr = Object.keys(categories).map((category) => {
+    return [category, categories[category]];
+  });
+  displayMenuCategories(categoriesArr);
+};
+
 const fetchArticles = async () => {
   try {
     const response = await fetch("https://restapi.fr/api/articles");
     const articles = await response.json();
-    console.log(articles);
     createArticles(articles);
+    createMenuCategories(articles);
   } catch (e) {
     console.log("e : ", e);
   }
