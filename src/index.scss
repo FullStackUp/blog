@@ -15,15 +15,23 @@
       border-radius: 0.3rem;
       box-shadow: var(--box-shadow);
       li {
-        font-weight: 600;
         width: max-content;
         padding: 0.5rem;
+        transition: color 0.2s;
         &:hover {
           cursor: pointer;
-          color: var(--light);
+          color: var(--hover-color);
           strong {
             color: var(--light);
           }
+        }
+      }
+      .active {
+        font-weight: 700;
+        color: var(--light);
+        font-weight: bold;
+        strong {
+          color: var(--light);
         }
       }
     }
