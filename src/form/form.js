@@ -4,7 +4,12 @@ import "./form.scss";
 
 const form = document.querySelector("form");
 const errorElement = document.querySelector("#errors");
+const btnCancel = document.querySelector(".btn-secondary");
 let errors = [];
+
+btnCancel.addEventListener("click", () => {
+  location.assign("./index.html");
+});
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -20,8 +25,9 @@ form.addEventListener("submit", async (event) => {
           "Content-Type": "application/json",
         },
       });
-      const body = await response.json();
-      console.log(body);
+      if (response.status < 299) {
+        location.assign("./index.html");
+      }
     } catch (e) {
       console.error("e : ", e);
     }
@@ -29,6 +35,8 @@ form.addEventListener("submit", async (event) => {
 });
 
 const formIsValid = (article) => {
+  //Prevent repeating the same error, we create an empty array before.
+  errors = [];
   if (
     !article.author ||
     !article.img ||
